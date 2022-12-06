@@ -1,0 +1,49 @@
+﻿@model ML.Usuario; 
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAll</h2>
+
+<div class="container">
+    <h2>Alumno</h2>
+    <p>Aqui puede ver, editar o agrgar a un alumno</p>
+    <p>Para agregar un alumno presione el boton verde</p>
+    <p>Para editar un alumno presione el boton amarillo</p>
+    <p>Para eliminar un alumno presione el boton rojo</p>
+
+    <div class="row">
+        <div style="float:right">
+            @Html.ActionLink("+", "Form", "Usuario", htmlAttributes: new { @class = "btn btn-success" })
+        </div>
+    </div>
+
+    <hr />
+    <div class="row">
+
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Editar</th>
+                    <th class="hidden">IdAlumno</th>
+                    <th>Nombre</th>
+                    @*<th>Apellido Paterno</th>
+                        <th>Apellido Paterno</th>*@
+                    <th>Fecha Nacimiento</th>
+                    <th>Genero</th>
+                    <th>Semestre</th>
+                    <th>Eliminar</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (ML.Usuario usuario in Model.Usuarios)
+                {
+                    
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

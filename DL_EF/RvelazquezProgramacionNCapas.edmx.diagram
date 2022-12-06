@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f8404d5f78145ff8ae8520b7c45d777" Name="Diagram1">
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Aseguradora" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Rol" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.sysdiagram" Width="1.5" PointX="2.375" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Colonia" Width="1.5" PointX="8.625" PointY="5" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Direccion" Width="1.5" PointX="6.5" PointY="5" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Estado" Width="1.5" PointX="12.625" PointY="5" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Municipio" Width="1.5" PointX="10.625" PointY="5" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Pais" Width="1.5" PointX="14.5" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Colonia__IdMunic__114A936A" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdCol__14270015" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Estado__IdPais__0B91BA14" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Municipio__IdEst__0E6E26BF" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Usuario" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Dependiente" Width="1.5" PointX="8.875" PointY="9.125" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.DependienteTipo" Width="1.5" PointX="6.625" PointY="14.125" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Empleado" Width="1.5" PointX="6.625" PointY="9" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Empresa" Width="1.5" PointX="4.375" PointY="9.75" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Dependien__IdDep__5AB9788F" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Dependien__Numer__5BAD9CC8" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Empleado__IdEmpr__44CA3770" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
