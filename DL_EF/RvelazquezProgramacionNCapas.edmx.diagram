@@ -17,11 +17,6 @@
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdCol__14270015" />
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Estado__IdPais__0B91BA14" />
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Municipio__IdEst__0E6E26BF" />
-        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Usuario" Width="1.5" PointX="3" PointY="0.875" />
-        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A" />
-        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E" />
-        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9" />
-        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" />
         <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Dependiente" Width="1.5" PointX="8.875" PointY="9.125" />
         <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.DependienteTipo" Width="1.5" PointX="6.625" PointY="14.125" />
         <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Empleado" Width="1.5" PointX="6.625" PointY="9" />
@@ -29,6 +24,11 @@
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Dependien__IdDep__5AB9788F" />
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Dependien__Numer__5BAD9CC8" />
         <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Empleado__IdEmpr__44CA3770" />
+        <EntityTypeShape EntityType="RVelazquezProgramacionNCapasModel.Usuario" Width="1.5" PointX="3" PointY="13.375" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9" />
+        <AssociationConnector Association="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

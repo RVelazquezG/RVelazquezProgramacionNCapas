@@ -564,6 +564,9 @@ namespace BL
             {
                 using (DL_EF.RVelazquezProgramacionNCapasEntities1 context = new DL_EF.RVelazquezProgramacionNCapasEntities1())
                 {
+                    usuario.Nombre = (usuario.Nombre == null)? "":usuario.Nombre;
+                    usuario.ApellidoPaterno = (usuario.ApellidoPaterno == null)? "":usuario.ApellidoPaterno;
+                    usuario.Rol.IdRol = (usuario.Rol.IdRol == null) ? 0 : usuario.Rol.IdRol; //operador ternario
                     var usuarios = context.UsuarioGetAll(usuario.Nombre, usuario.ApellidoPaterno, usuario.Rol.IdRol).ToList();
 
                     result.Objects = new List<object>();

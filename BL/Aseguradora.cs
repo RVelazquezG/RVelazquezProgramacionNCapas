@@ -308,7 +308,7 @@ namespace BL
                     var query = context.AseguradoraAdd(aseguradora.Nombre, aseguradora.Usuario.IdUsuario);
 
 
-                    if (query > 1)
+                    if (query >= 1)
                     {
                         result.Correct = true;
                     }

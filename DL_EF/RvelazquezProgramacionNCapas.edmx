@@ -661,23 +661,6 @@
           <FunctionImport Name="UsuarioDelete">
           <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="Usuarios" EntityType="RVelazquezProgramacionNCapasModel.Usuario" />
-          <AssociationSet Name="FK__Asegurado__IdUsu__5441852A" Association="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Aseguradora" EntitySet="Aseguradoras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Direccion__IdUsu__151B244E" Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Direccion" EntitySet="Direccions" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuario__idRol__5AEE82B9" Association="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9">
-            <End Role="Rol" EntitySet="Rols" />
-            <End Role="Usuario" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Usuario" Association="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Usuario1" EntitySet="Usuarios" />
-          </AssociationSet>
           <EntitySet Name="Dependientes" EntityType="RVelazquezProgramacionNCapasModel.Dependiente" />
           <EntitySet Name="DependienteTipoes" EntityType="RVelazquezProgramacionNCapasModel.DependienteTipo" />
           <EntitySet Name="Empleadoes" EntityType="RVelazquezProgramacionNCapasModel.Empleado" />
@@ -840,6 +823,23 @@
             <Parameter Name="NumeroExterior" Mode="In" Type="String" />
             <Parameter Name="IdColonia" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Usuarios" EntityType="RVelazquezProgramacionNCapasModel.Usuario" />
+          <AssociationSet Name="FK__Asegurado__IdUsu__5441852A" Association="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Aseguradora" EntitySet="Aseguradoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Direccion__IdUsu__151B244E" Association="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Direccion" EntitySet="Direccions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__idRol__5AEE82B9" Association="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9">
+            <End Role="Rol" EntitySet="Rols" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Usuario" Association="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Usuario1" EntitySet="Usuarios" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="AseguradoraGetById_Result">
           <Property Type="Int32" Name="IdAseguradora" Nullable="false" />
@@ -987,79 +987,6 @@
           <Property Type="Int32" Name="IdMunicipio" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
         </ComplexType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="IdUsuario" />
-          </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CURP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="idRol" Type="Int32" />
-          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Aseguradoras" Relationship="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A" FromRole="Usuario" ToRole="Aseguradora" />
-          <NavigationProperty Name="Direccions" Relationship="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E" FromRole="Usuario" ToRole="Direccion" />
-          <NavigationProperty Name="Rol" Relationship="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9" FromRole="Usuario" ToRole="Rol" />
-          <NavigationProperty Name="Usuario1" Relationship="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" FromRole="Usuario" ToRole="Usuario1" />
-          <NavigationProperty Name="Usuario2" Relationship="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" FromRole="Usuario1" ToRole="Usuario" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
-        <Association Name="FK__Asegurado__IdUsu__5441852A">
-          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="RVelazquezProgramacionNCapasModel.Aseguradora" Role="Aseguradora" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="Aseguradora">
-              <PropertyRef Name="IdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Direccion__IdUsu__151B244E">
-          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="RVelazquezProgramacionNCapasModel.Direccion" Role="Direccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="Direccion">
-              <PropertyRef Name="IdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Usuario__idRol__5AEE82B9">
-          <End Type="RVelazquezProgramacionNCapasModel.Rol" Role="Rol" Multiplicity="0..1" />
-          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rol">
-              <PropertyRef Name="idRol" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="idRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuario_Usuario">
-          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="Usuario1">
-              <PropertyRef Name="IdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Dependiente">
           <Key>
             <PropertyRef Name="IdDependiente" />
@@ -1302,6 +1229,79 @@
           <Property Type="String" Name="NombrePais" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="Status" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CURP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idRol" Type="Int32" />
+          <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Aseguradoras" Relationship="RVelazquezProgramacionNCapasModel.FK__Asegurado__IdUsu__5441852A" FromRole="Usuario" ToRole="Aseguradora" />
+          <NavigationProperty Name="Direccions" Relationship="RVelazquezProgramacionNCapasModel.FK__Direccion__IdUsu__151B244E" FromRole="Usuario" ToRole="Direccion" />
+          <NavigationProperty Name="Rol" Relationship="RVelazquezProgramacionNCapasModel.FK__Usuario__idRol__5AEE82B9" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Usuario1" Relationship="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" FromRole="Usuario" ToRole="Usuario1" />
+          <NavigationProperty Name="Usuario2" Relationship="RVelazquezProgramacionNCapasModel.FK_Usuario_Usuario" FromRole="Usuario1" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK__Asegurado__IdUsu__5441852A">
+          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="RVelazquezProgramacionNCapasModel.Aseguradora" Role="Aseguradora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Aseguradora">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Direccion__IdUsu__151B244E">
+          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="RVelazquezProgramacionNCapasModel.Direccion" Role="Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__idRol__5AEE82B9">
+          <End Type="RVelazquezProgramacionNCapasModel.Rol" Role="Rol" Multiplicity="0..1" />
+          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Usuario">
+          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="RVelazquezProgramacionNCapasModel.Usuario" Role="Usuario1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Usuario1">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1476,27 +1476,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UsuarioDelete" FunctionName="RVelazquezProgramacionNCapasModel.Store.UsuarioDelete" />
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="RVelazquezProgramacionNCapasModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
-                <ScalarProperty Name="CURP" ColumnName="CURP" />
-                <ScalarProperty Name="Celular" ColumnName="Celular" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Dependientes">
             <EntityTypeMapping TypeName="RVelazquezProgramacionNCapasModel.Dependiente">
               <MappingFragment StoreEntitySet="Dependiente">
@@ -1753,6 +1732,27 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="RVelazquezProgramacionNCapasModel.Store.UsuarioUpdate" />
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="RVelazquezProgramacionNCapasModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

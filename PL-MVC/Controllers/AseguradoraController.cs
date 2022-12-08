@@ -14,14 +14,15 @@ namespace PL_MVC.Controllers
         public ActionResult GetAll()
         {
 
-            ML.Result result = new ML.Result();
-            result = BL.Aseguradora.GetAllEF();
-
+            ML.Aseguradora aseguradora = new ML.Aseguradora();
+            //result = BL.Aseguradora.GetAllEF();
+            ServiceAseguradora.AseguradoraClient context = new ServiceAseguradora.AseguradoraClient();
+            var result = context.GetAll();
 
             if (result.Correct)
             {
-                ML.Aseguradora aseguradora = new ML.Aseguradora();
-                aseguradora.Aseguradoras = result.Objects;
+             
+                aseguradora.Aseguradoras = result.Objects.ToList();
                 return View(aseguradora);
             }
             else
@@ -36,8 +37,10 @@ namespace PL_MVC.Controllers
         {
             ML.Usuario usuario = new ML.Usuario();
             ML.Aseguradora aseguradora = new ML.Aseguradora();
-            aseguradora.Usuario = new ML.Usuario();
+            aseguradora.Usuario = new ML.Usuario(); 
 
+            usuario.Rol = new ML.Rol();
+            ML.Result resultRol = BL.Rol.GetAllEF();
             ML.Result resultUsuario = BL.Usuario.GetAllEF(usuario);
 
 
@@ -48,7 +51,10 @@ namespace PL_MVC.Controllers
             }
             else
             {
-                ML.Result result = BL.Aseguradora.GetByIdEF(IdAseguradora.Value);
+                //ML.Result result = BL.Aseguradora.GetByIdEF(IdAseguradora.Value);
+                ServiceAseguradora.AseguradoraClient context = new ServiceAseguradora.AseguradoraClient();
+                var result = context.GetById(IdAseguradora.Value);
+
                 if (result.Correct)
                 {
                     aseguradora = (ML.Aseguradora)result.Object;
@@ -69,9 +75,11 @@ namespace PL_MVC.Controllers
 
             if (aseguradora.IdAseguradora == 0)
             {
-                //add
-                //ml.result = agregar
-                ML.Result result = BL.Aseguradora.AddEF(aseguradora);
+                
+
+                ServiceAseguradora.AseguradoraClient context = new ServiceAseguradora.AseguradoraClient();
+                var result = context.Add(aseguradora);
+
                 if (result.Correct)
                 {
                     aseguradora = (ML.Aseguradora)result.Object;
@@ -87,10 +95,11 @@ namespace PL_MVC.Controllers
             }
             else
             {
-                //update
-                //ml.result = update
-                //if
-                ML.Result result = BL.Aseguradora.UpdateEF(aseguradora);
+                
+                //ML.Result result = BL.Aseguradora.UpdateEF(aseguradora);
+                ServiceAseguradora.AseguradoraClient context = new ServiceAseguradora.AseguradoraClient();
+                var result = context.Update(aseguradora);
+
                 if (result.Correct)
                 {
                     aseguradora = (ML.Aseguradora)result.Object;
@@ -111,16 +120,15 @@ namespace PL_MVC.Controllers
         public ActionResult Delete(int? IdAseguradora)
         {
 
-            ML.Result result = new ML.Result();
-
-
             if (IdAseguradora == null)
             {
                 ViewBag.Message = "Ocurrio un error al eliminar el usuario seleccionado";
             }
             else
             {
-                result = BL.Aseguradora.DeleteEF(IdAseguradora.Value);
+                //result = BL.Aseguradora.DeleteEF(IdAseguradora.Value);
+                ServiceAseguradora.AseguradoraClient context = new ServiceAseguradora.AseguradoraClient();
+                var result = context.Delete(IdAseguradora.Value);
                 ViewBag.Message = "El usuario seleccionado ha sido eliminado";
             }
             return PartialView("Modal");

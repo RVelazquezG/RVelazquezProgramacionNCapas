@@ -35,11 +35,11 @@ namespace DL_EF
         public virtual DbSet<Estado> Estadoes { get; set; }
         public virtual DbSet<Municipio> Municipios { get; set; }
         public virtual DbSet<Pais> Pais1 { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Dependiente> Dependientes { get; set; }
         public virtual DbSet<DependienteTipo> DependienteTipoes { get; set; }
         public virtual DbSet<Empleado> Empleadoes { get; set; }
         public virtual DbSet<Empresa> Empresas { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
     
         public virtual int AseguradoraAdd(string nombre, Nullable<int> idUsuario)
         {
